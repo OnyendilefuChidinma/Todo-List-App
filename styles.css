@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f4f8;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(https://res.cloudinary.com/du2rjnoya/image/upload/v1729900494/task-management-concept-illustration_335657-5485_bdrhud.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: white;
+    padding: 48px 32px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    margin: 64px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-section {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 1fr;
+    gap: 10px;
+    margin: 32px 0;
+}
+
+input, select, button {
+    padding: 10px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+input, select{
+    border: 0.5px solid #333;
+}
+
+input:hover, select:hover,input:focus, select:focus{
+    border: 1px solid #007bff;
+    outline-color: #007bff;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-wrap: nowrap;
+}
+
+button:hover,.filter-buttons button:hover, li button:hover, .clear-buttons button:hover {
+    background-color: #80b3ea72;
+    color: #333;
+    
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: nowrap;
+    margin: 32px 0;
+    overflow-x: scroll;
+    width: 100%;
+}
+
+.filter-buttons button{
+    background-color:#f0f0f0;
+    color: #333;
+}
+
+.filter-buttons button.active{
+    background-color:#007bff;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+li .task-text {
+    flex: 1;
+}
+
+li .due-date {
+    font-size: 12px;
+    color: gray;
+    margin-left: 10px;
+}
+
+button.complete {
+    background-color: rgba(2, 133, 2, 0.574);
+    font-size: 12px;
+}
+
+button.undo {
+    text-decoration: line-through;
+    color: #333;
+    font-size: 12px;
+    color: white;
+}
+
+button.edit{
+    background-color:  lightblue;
+    font-size: 12px;
+    color: #333;
+}
+button.delete{
+    font-size: 12px;
+    background-color:  rgba(182, 9, 9, 0.684);
+}
+
+.high {
+    background-color: #f8d7da;
+}
+
+.medium {
+    background-color: #fff3cd;
+}
+
+.low {
+    background-color: #d4edda;
+}
+
+.catBtn{
+    text-wrap: nowrap;
+}
+
+.clear-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 48px auto;
+}
+
+.clear-buttons button{
+    background-color: rgb(215, 12, 12);
+    width: 240px;
+}
+
+.filter-buttons::-webkit-scrollbar{
+    display: none;
+}
+
+.filter-buttons{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+}
+
+.taskItem_btn_sect{
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskItem_text_sect{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 400px;
+}
+
+.alert{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background: #f8d7da;
+    height: 24px;
+  }
+  
+  .alert-success {
+    color: #155724;
+    background: #d4edda;
+    height: 24px;
+  }
+
+
+
+@media (max-width: 900px) {
+    .input-section {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    button:not(.complete, .undo, .edit, .delete), input, select {
+        width: 100%;
+    }
+
+    #addTaskButton{
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    li{
+        flex-direction: column;        
+    }
+
+    li button{
+        width: 30%;
+    }
+
+    .taskItem_btn_sect{
+        width: 100%;
+    }
+    
+    .taskItem_text_sect{
+        width: 100%;   
+    }
+}
+
+@media (max-width: 480px) {
+    .clear-buttons{
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 48px 16px;
+    }
+}
+@media (max-width: 320px) {
+    .taskItem_btn_sect,.taskItem_text_sect{
+        flex-direction: column;
+    
+    }
+
+    .taskItem_btn_sect button{
+        width: 100%;
+    }
+    
+}
