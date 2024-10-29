@@ -145,7 +145,7 @@ addTaskButton.addEventListener('click', () => {
     const priority = prioritySelect.value;
     const dueDate = dueDateInput.value;
 
-    if (text) {
+    if (text && dueDate) {
         // Check if editing or adding new task
         if (editIndex !== null) {
             // Update existing task
@@ -162,7 +162,9 @@ addTaskButton.addEventListener('click', () => {
         renderTasks();  // Refresh task display
         taskInput.value = '';  // Clear input fields
         dueDateInput.value = '';
-    }
+    } else {
+    displayAlert("Please fill in all fields.", "danger");
+  }
 });
 
 // Toggle task completion status
