@@ -29,6 +29,9 @@ function saveTasks() {
 function renderTasks(filter = 'all') {
     taskList.innerHTML = ''; // Clear task list display
 
+    // Sort tasks by due date, from closest to latest
+    tasks.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+
     // Loop through tasks and display based on selected filter
     tasks.forEach((task, index) => {
         if (filter === 'all' && !task.deleted ||
